@@ -15,7 +15,7 @@ Storing and reusing states using concurrent hash maps where keys are expression 
 
 There can be lots of duplicates within the expression and across. So as we perform computations the values can be stored to avoid re-computations reducing the latency. However, with large hashmaps we would have to consider the tradeoff between hashmap lookups/storing (hashing) and operational latency. 
 
-However, let’s say the data set doesn’t have lots of duplicates in that case, hashing/lookups/storage can add to the latency instead.
+Although, let’s say the data set doesn’t have lots of duplicates in that case, hashing/lookups/stores can add to the performance latency instead of reducing it.
 
 For large scale, we can use a key-value store for persistent storage across millions of calls to expression evaluator.
 
