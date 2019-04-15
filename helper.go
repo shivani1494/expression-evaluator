@@ -1,13 +1,12 @@
 package Expression_Evaluator
 
 import (
-
-	"github.com/golang-collections/collections/queue"
 	"bytes"
-	"math"
-	"github.com/deckarep/golang-set"
 	"errors"
+	"github.com/deckarep/golang-set"
+	"github.com/golang-collections/collections/queue"
 	"github.com/golang/glog"
+	"math"
 	"strconv"
 )
 
@@ -37,7 +36,6 @@ func binaryTreeLevelOrderTraversal(root *node) [][]*node {
 			if currNode.left != nil {
 				queueNodes.Enqueue(currNode.left)
 			}
-
 
 			if currNode.right != nil {
 				queueNodes.Enqueue(currNode.right)
@@ -84,36 +82,36 @@ func postOrder(curr *node, finalTree *bytes.Buffer) {
 	}
 }
 
-func compute(op string , num1 float64, num2 float64) (float64, error) {
+func compute(op string, num1 float64, num2 float64) (float64, error) {
 
 	glog.Info("Performing Computation %+v, %+v, %+v", num1, op, num2)
 	switch op {
 
-		case "+":
-			return num1+num2, nil
+	case "+":
+		return num1 + num2, nil
 
-		case "-":
-			return num1-num2, nil
-			break;
+	case "-":
+		return num1 - num2, nil
+		break
 
-		case "*":
-			return num1*num2, nil
-			break;
+	case "*":
+		return num1 * num2, nil
+		break
 
-		case "/":
-			return num1/num2, nil
-			break;
+	case "/":
+		return num1 / num2, nil
+		break
 
-		case "^" :
-			return math.Pow(num1,num2), nil
-			break;
+	case "^":
+		return math.Pow(num1, num2), nil
+		break
 
-		case "log" :
-			return math.Log(num1) / math.Log(num2), nil
-			break;
+	case "log":
+		return math.Log(num1) / math.Log(num2), nil
+		break
 
-		default:
-			return -1, errors.New("Operator not found " + op)
+	default:
+		return -1, errors.New("Operator not found " + op)
 	}
 
 	return -1, nil

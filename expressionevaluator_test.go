@@ -93,8 +93,7 @@ func Test_BuildAndPrintExpressionTree(t *testing.T) {
 
 // Note- could do setup only once and modify the root value to nil
 // across iterations and reuse the sync.map across calls to reuse state
-// however, that would be a rather sub-optimal approach since private
-// member variables should not be modified in the tests.
+// but a sub-optimal approach
 func Test_EvaluateExpressionTree(t *testing.T) {
 
 	for _, tt := range evaluationTests {
