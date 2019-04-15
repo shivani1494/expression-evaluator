@@ -44,7 +44,6 @@ func binaryTreeLevelOrderTraversal(root *node) [][]*node {
 		}
 
 		if nodeCount == 0 {
-			//fmt.Println("currLevel**** ", currLevel)
 			currLevel++
 			vecStacks = append(vecStacks, []*node{})
 		}
