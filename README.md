@@ -66,6 +66,10 @@ Initial approach was to use C++ but threads and synchronization are not well-sup
 
 + tokenizing the passed string using space as a delimiter - trade off is one pass through the entire string as a preprocessing step which can be computationally intensive if there are thousands of operators/operands in the string and millions of such expressions. However, validating all possible numerical formats of an operand would have taken a lot of logic/code so to retain all possible numerical formats doing string splits.
 
++ Could have used wait groups instead of channels in the main goroutine to communicate once all child goroutines end.
+
++ Used word threads synonmously with goroutines, but am aware that goroutines are not OS threads but their behaviours are similar.
+
 + Division by 0 results in INF/-INF
 
 + Missed out on adding more division and power operations but can easily be modified to accommodate for those.
