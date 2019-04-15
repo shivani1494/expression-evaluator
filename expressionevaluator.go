@@ -1,18 +1,17 @@
 package Expression_Evaluator
 
 import (
-
-	"github.com/golang-collections/collections/stack"
-	"strconv"
-	"fmt"
-	"github.com/golang/glog"
-	"strings"
 	"bytes"
-	"math"
 	"errors"
+	"fmt"
+	"github.com/golang-collections/collections/stack"
+	"github.com/golang/glog"
+	"math"
+	"strconv"
+	"strings"
 )
 
-func ( e *ExpressionEvaluator ) BuildExpressionTree(currExpr string) (*node, error) {
+func (e *ExpressionEvaluator) BuildExpressionTree(currExpr string) (*node, error) {
 
 	opDataNodes := stack.New()
 	tokens := strings.Split(currExpr, " ")
@@ -28,7 +27,7 @@ func ( e *ExpressionEvaluator ) BuildExpressionTree(currExpr string) (*node, err
 			b := opDataNodes.Pop()
 			curr.left = b.(*node)
 
-			opDataNodes.Push(curr);
+			opDataNodes.Push(curr)
 
 			e.root = curr
 
@@ -45,8 +44,7 @@ func ( e *ExpressionEvaluator ) BuildExpressionTree(currExpr string) (*node, err
 	return e.root, nil
 }
 
-
-func ( e *ExpressionEvaluator ) PrintExpressionTree() string {
+func (e *ExpressionEvaluator) PrintExpressionTree() string {
 
 	if e.root == nil {
 		return ""
@@ -60,7 +58,7 @@ func ( e *ExpressionEvaluator ) PrintExpressionTree() string {
 	return binExprTree.String()
 }
 
-func ( e* ExpressionEvaluator ) evaluateExpressionPerLevel(id int, stacks <-chan *node, done chan<- int) {
+func (e *ExpressionEvaluator) evaluateExpressionPerLevel(id int, stacks <-chan *node, done chan<- int) {
 	glog.Info("Worker-", id, "started")
 
 	for j := range stacks {
@@ -97,8 +95,7 @@ func ( e* ExpressionEvaluator ) evaluateExpressionPerLevel(id int, stacks <-chan
 	done <- 1
 }
 
-
-func( e *ExpressionEvaluator ) EvaluateExpressionTree() (float64, error) {
+func (e *ExpressionEvaluator) EvaluateExpressionTree() (float64, error) {
 
 	if e.root == nil {
 		return math.Inf(-1), errors.New("root not found - expression tree is empty")
@@ -106,9 +103,9 @@ func( e *ExpressionEvaluator ) EvaluateExpressionTree() (float64, error) {
 
 	vecStacks := binaryTreeLevelOrderTraversal(e.root)
 
-	for i := len(vecStacks)-1; i >= 0; i-- {
+	for i := len(vecStacks) - 1; i >= 0; i-- {
 
-		jobs := make(chan *node, len(vecStacks[i])+ e.workerThreads)
+		jobs := make(chan *node, len(vecStacks[i])+e.workerThreads)
 		done := make(chan int, e.workerThreads)
 
 		for j := 0; j < len(vecStacks[i]); j++ {

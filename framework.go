@@ -1,8 +1,8 @@
 package Expression_Evaluator
 
 import (
-	"sync"
 	"github.com/deckarep/golang-set"
+	"sync"
 )
 
 const (
@@ -10,16 +10,16 @@ const (
 )
 
 type node struct {
-	data float64
-	op string
-	left *node
+	data  float64
+	op    string
+	left  *node
 	right *node
 }
 
 type ExpressionEvaluator struct {
-	root *node
-	stateMap sync.Map
-	operandSet mapset.Set
+	root          *node
+	stateMap      sync.Map
+	operandSet    mapset.Set
 	workerThreads int
 }
 
@@ -32,7 +32,7 @@ func NewNode(data float64, op string) *node {
 	return node
 }
 
-func ( e *ExpressionEvaluator ) NewExpressionEvaluator() {
+func (e *ExpressionEvaluator) NewExpressionEvaluator() {
 
 	e.root = nil
 	e.workerThreads = defaultWorkerThreads
