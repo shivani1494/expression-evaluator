@@ -6,7 +6,7 @@ Traversing the tree in a reverse level-by-level manner since nodes at each level
 
 Every expression is a collection of subexpressions (recursive definition) which can be reused to store state and be computed in parallel. The same concept applies to across expressions.
 
-Storing and reusing states using concurrent hash maps where keys are expression strings of fixed length(3) and values are the expression values.
+Storing and reusing states using concurrent hash maps where keys are expression strings of fixed length(2 operands and operator) and values are the expression values.
 
 
 ## Evaluating Performance
