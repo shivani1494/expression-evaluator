@@ -4,12 +4,10 @@ An arithmetic expression:
 - is given as a string
 
 This is a service, that given a large set of expressions can:
-Print each of them as an expression tree
-Evaluate all expressions and provide the results
-
-Is able to evaluate arithmetic expressions
-Is able to provide visualizations of arithmetic expressions
-Scales to handle millions of complex expressions with low latency.
+-- Print each of them as an expression tree
+-- Evaluate all expressions and provide the results
+-- Is able to provide visualizations of arithmetic expressions
+-- Scales to handle millions of complex expressions with low latency.
 
 
 ## Evaluating expressions at scale
