@@ -1,4 +1,4 @@
-## Final Approach
+## Approach to evaluating expressions at scale
 
 Approached it with dividing and conquering expression and running parallel computations for non-dependent parts of the expression. 
 
