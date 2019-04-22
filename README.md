@@ -1,3 +1,17 @@
+An arithmetic expression:
+- contains numbers, unary operators (+/-), binary operators (+,-,*,/, ^ exp, log) and parenthesis.
+- can be arbitrarily complex (thousands of operations)
+- is given as a string
+
+This is a service, that given a large set of expressions can:
+Print each of them as an expression tree
+Evaluate all expressions and provide the results
+
+Is able to evaluate arithmetic expressions
+Is able to provide visualizations of arithmetic expressions
+Scales to handle millions of complex expressions with low latency.
+
+
 ## Evaluating expressions at scale
 
 Divide and conquering expression and running parallel computations for non-dependent parts of the expression. 
