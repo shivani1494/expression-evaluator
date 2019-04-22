@@ -1,6 +1,6 @@
-## Approach to evaluating expressions at scale
+## Evaluating expressions at scale
 
-Approached it with dividing and conquering expression and running parallel computations for non-dependent parts of the expression. 
+Divide and conquering expression and running parallel computations for non-dependent parts of the expression. 
 
 Traversing the tree in a reverse level-by-level manner since nodes at each level are independent of each other for performing computations(can be proved by expression tree structure). So, threads could be spawned and work on processing nodes level-by-level without idle wait time.
 
@@ -52,7 +52,7 @@ Initial approach was to use C++ but threads and synchronization are not well-sup
 
 
 
-## Assumptions to scope down
+## Some Assumptions 
 
 + not supporting unary operators
 
