@@ -63,5 +63,21 @@ Initial approach was to use C++ but threads and synchronization are not well-sup
 
 
 
+## Assumptions 
+
++ unary operators unsupported
+
++ Expression is a well-formatted postfix expression i.e preprocessing step of fully parenthesizing the given expression using BODMAS rule (given expressions are not parenthesized) then converting the infix to postfix expression is already done.
+
++ tokenizing the passed string using space as a delimiter - trade off is one pass through the entire string as a preprocessing step which can be computationally intensive if there are thousands of operators/operands in the string and millions of such expressions. However, validating all possible numerical formats of an operand would have taken a lot of logic/code so to retain all possible numerical formats doing string splits.
+
++ Used threads synonymously with goroutines, but aware that goroutines are not OS threads but their behaviours are similar.
+
++ will add more tests division and power operations
+
++ Used this for converting postfix to infix expression http://scanftree.com/Data_Structure/prefix-postfix-infix-online-converter
+
++ Used this for evaluating infix expressions to values
+http://www.convertit.com/Go/ConvertIt/Calculators/Math/Expression_Calc.ASP
 
 
