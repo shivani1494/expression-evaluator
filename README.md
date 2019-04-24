@@ -71,7 +71,7 @@ Initial approach was to use C++ but threads and synchronization are not well-sup
 
 + tokenizing the passed string using space as a delimiter - trade off is one pass through the entire string as a preprocessing step which can be computationally intensive if there are thousands of operators/operands in the string and millions of such expressions. However, validating all possible numerical formats of an operand would have taken a lot of logic/code so to retain all possible numerical formats doing string splits.
 
-+ Used threads synonymously with goroutines, but aware that goroutines are not OS threads but their behaviours are similar.
++ Used threads synonymously with goroutines, but aware that goroutines are not OS threads but their behaviours are similar. also, wait groups (instead of channels) would be better to let all threads arrive before further processing.
 
 + will add more tests division and power operations
 
@@ -80,4 +80,4 @@ Initial approach was to use C++ but threads and synchronization are not well-sup
 + Used this for evaluating infix expressions to values
 http://www.convertit.com/Go/ConvertIt/Calculators/Math/Expression_Calc.ASP
 
-
++ can improve with flags for # of threads + table-driven benchmark testing
